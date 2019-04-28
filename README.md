@@ -18,15 +18,16 @@ The starting source code was cloned from <https://github.com/udacity/frontend-na
 
 Required tests:
 
-- Write a test that loops through each feed in the `allFeeds` object and ensures it has a URL defined and that the URL is not empty
-- Write a test that loops through each feed in the `allFeeds` object and ensures it has a name defined and that the name is not empty
-- Write a new test suite named `"The menu"`
-- Write a test that ensures the menu element is hidden by default
-- Write a test that ensures the menu changes visibility when the menu icon is clicked. This test should have two expectations: does the menu display itself when clicked, and does it hide when clicked again?
-- Write a test suite named `"Initial Entries"`
-- Write a test that ensures when the `loadFeed` function is called and completes its work, there is at least a single `.entry` element within the `.feed` container
-- Write a test suite named `"New Feed Selection"`
-- Write a test that ensures when a new feed is loaded by the `loadFeed` function that the content actually changes
+1. Edit the `allFeeds` variable in `app.js` to make the provided test fail. Return the `allFeeds` variable to a passing state after reviewing the failed test
+2. Write a test that loops through each feed in the `allFeeds` object and ensures it has a URL defined and that the URL is not empty
+3. Write a test that loops through each feed in the `allFeeds` object and ensures it has a name defined and that the name is not empty
+4. Write a new test suite named `"The menu"`
+5. Write a test that ensures the menu element is hidden by default
+6. Write a test that ensures the menu changes visibility when the menu icon is clicked. This test should have two expectations: does the menu display itself when clicked, and does it hide when clicked again?
+7. Write a test suite named `"Initial Entries"`
+8. Write a test that ensures when the `loadFeed` function is called and completes its work, there is at least a single `.entry` element within the `.feed` container
+9. Write a test suite named `"New Feed Selection"`
+10. Write a test that ensures when a new feed is loaded by the `loadFeed` function that the content actually changes
 
 Additional requirements:
 
@@ -35,7 +36,47 @@ Additional requirements:
 - Error handling should be implemented for undefined variables and out-of-bound array access
 - When complete, all tests should pass
 
-## Steps to Run the Application
+## Steps to Run the Test Suites
+
+### `'RSS Feeds'` Test Suite
+
+1. To run the `'are defined'` test
+
+   - Open `apps.js` in an editor
+   - Rename `allFeeds` to `allFeed` then refresh the browser
+     - Jasmine is red: `ReferenceError: allFeeds is not defined`
+   - Add an `allFeeds` variable as an empty array then refresh the browser
+     - Jasmine is red: `Error: Expected 0 not to be 0.`
+   - Delete `allFeeds` and rename `allFeed` to `allFeeds` then refresh the browser
+     - Jasmine is green
+
+2. To run the `'should have links defined and not empty'` test
+
+   - Open `apps.js` in an editor
+   - Add a new feed to `allFeeds` with a missing `url`
+     - Jasmine is red: `Error: Expected undefined to be defined.`
+     - Jasmine is red: `TypeError: Cannot read property 'length' of undefined`
+   - Add a `url` with an empty value to the new feed
+     - Jasmine is red: `Error: Expected 0 not to be 0.`
+   - Delete the new feed that was added
+     - Jasmine is green
+
+3. To run the `'should have names defined and not empty'` test
+
+   - Open `apps.js` in an editor
+   - Add a new feed to `allFeeds` with a missing `name`
+     - Jasmine is red: `Error: Expected undefined to be defined.`
+     - Jasmine is red: `TypeError: Cannot read property 'length' of undefined`
+   - Add a `name` with an empty value to the new feed
+     - Jasmine is red: `Error: Expected 0 not to be 0.`
+   - Delete the new feed that was added
+     - Jasmine is green
+
+### `'The menu'` Test Suite
+
+### `"Initial Entries"` Test Suite
+
+### `"New Feed Selection"` Test Suite
 
 ## Links
 
