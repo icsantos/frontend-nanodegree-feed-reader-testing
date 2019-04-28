@@ -40,43 +40,43 @@ Additional requirements:
 
 ### `'RSS Feeds'` Test Suite
 
-1. To run the `'are defined'` test
+#### `'are defined'` Test
 
-   - Open `apps.js` in an editor
-   - Rename `allFeeds` to `allFeed` then refresh the browser
-     - Jasmine is red: `ReferenceError: allFeeds is not defined`
-   - Add an `allFeeds` variable as an empty array then refresh the browser
-     - Jasmine is red: `Error: Expected 0 not to be 0.`
-   - Delete `allFeeds` and rename `allFeed` to `allFeeds` then refresh the browser
-     - Jasmine is green
+- Open `apps.js` in an editor
+- Rename `allFeeds` to `allFeed` then refresh the browser
+  - Jasmine is red: `ReferenceError: allFeeds is not defined`
+- Add an `allFeeds` variable as an empty array then refresh the browser
+  - Jasmine is red: `Error: Expected 0 not to be 0.`
+- Delete `allFeeds` and rename `allFeed` to `allFeeds` then refresh the browser
+  - Jasmine is green
 
-2. To run the `'should have links defined and not empty'` test
+#### `'should have links defined and not empty'` test
 
-   - Open `apps.js` in an editor
-   - Add a new feed to `allFeeds` with a missing `url`
-     - Jasmine is red: `Error: Expected undefined to be defined.`
-     - Jasmine is red: `TypeError: Cannot read property 'length' of undefined`
-   - Add a `url` with an empty value to the new feed
-     - Jasmine is red: `Error: Expected 0 not to be 0.`
-   - Delete the new feed that was added
-     - Jasmine is green
+- Open `apps.js` in an editor
+- Add a new feed to `allFeeds` with a missing `url`
+  - Jasmine is red: `Error: Expected undefined to be defined.`
+  - Jasmine is red: `TypeError: Cannot read property 'length' of undefined`
+- Add a `url` with an empty value to the new feed
+  - Jasmine is red: `Error: Expected 0 not to be 0.`
+- Delete the new feed that was added
+  - Jasmine is green
 
-3. To run the `'should have names defined and not empty'` test
+#### `'should have names defined and not empty'` test
 
-   - Open `apps.js` in an editor
-   - Add a new feed to `allFeeds` with a missing `name`
-     - Jasmine is red: `Error: Expected undefined to be defined.`
-     - Jasmine is red: `TypeError: Cannot read property 'length' of undefined`
-   - Add a `name` with an empty value to the new feed
-     - Jasmine is red: `Error: Expected 0 not to be 0.`
-   - Delete the new feed that was added
-     - Jasmine is green
+- Open `apps.js` in an editor
+- Add a new feed to `allFeeds` with a missing `name`
+  - Jasmine is red: `Error: Expected undefined to be defined.`
+  - Jasmine is red: `TypeError: Cannot read property 'length' of undefined`
+- Add a `name` with an empty value to the new feed
+  - Jasmine is red: `Error: Expected 0 not to be 0.`
+- Delete the new feed that was added
+  - Jasmine is green
 
 ### `'The menu'` Test Suite
 
-### `"Initial Entries"` Test Suite
+### `'Initial Entries'` Test Suite
 
-### `"New Feed Selection"` Test Suite
+### `'New Feed Selection'` Test Suite
 
 ## Links
 
