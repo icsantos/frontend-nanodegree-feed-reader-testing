@@ -48,7 +48,7 @@ The following steps are repeated for each test:
 
 ### `'RSS Feeds'` Test Suite
 
-#### `'are defined'` Test
+#### `'are defined'` test
 
 - Open `apps.js` in an editor
 - Rename `allFeeds` to `allFeed`
@@ -93,7 +93,18 @@ The following steps are repeated for each test:
 - Open `index.html` in an editor
 - Delete `class="menu-hidden"` from the body element
   - Jasmine is red
+  - `Error: Expected <body class>...</body> to have class 'menu-hidden'.`
   - `Error: Expected false to be true.`
+- Add `class="menu-hidden"` to the body element
+  - Jasmine is green
+
+#### `'changes visibility when its icon is clicked'` test
+
+- Open `index.html` in an editor
+- Delete `class="menu-hidden"` from the body element
+  - Jasmine is red
+  - `Error: Expected <body class="menu-hidden">...</body> not to have class 'menu-hidden'.`
+  - `Expected <body class>...</body> to have class 'menu-hidden'.`
 - Add `class="menu-hidden"` to the body element
   - Jasmine is green
 

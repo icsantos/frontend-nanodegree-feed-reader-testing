@@ -49,18 +49,32 @@ $(function() {
     /* This test suite is about the menu element
     */
     describe('The menu', function() {
+        const menuElem = $('body');
 
         /* Test that the menu element is hidden by default.
          */
         it('is hidden by default', function() {
-            expect($('body').hasClass('menu-hidden')).toBe(true);
+            expect(menuElem[0]).toHaveClass('menu-hidden');
+            // This is an alternative way to test if an element
+            // has a specific class, but the test failure message
+            // is less informative
+            expect(menuElem.hasClass('menu-hidden')).toBe(true);
         });
 
         /* Test that the menu changes visibility
-          * when the menu icon is clicked. This test
-          * should have two expectations: does the menu display when
-          * clicked and does it hide when clicked again.
+          * when the menu icon is clicked.
          */
+        it('changes visibility when its icon is clicked', function() {
+            const menuIcon = $('.menu-icon-link');
+
+            // The menu is hidden by default so the series of clicks
+            // will toggle the visibility on and off
+            menuIcon.trigger('click');
+            expect(menuElem[0]).not.toHaveClass('menu-hidden');
+
+            menuIcon.trigger('click');
+            expect(menuElem[0]).toHaveClass('menu-hidden');
+        });
     });
 
     /* TODO: Write a new test suite named "Initial Entries" */
