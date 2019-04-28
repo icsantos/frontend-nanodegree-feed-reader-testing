@@ -30,7 +30,7 @@ $(function() {
          * to ensure it has a URL defined
          * and that the URL is not empty.
          */
-        it('should have links defined and not empty', function() {
+        it('require each source has a defined, non-empty link', function() {
             for (const feed of allFeeds) {
                 expect(feed.url).toBeDefined();
                 expect(feed.url.length).not.toBe(0);
@@ -41,7 +41,7 @@ $(function() {
          * to ensure it has a name defined
          * and that the name is not empty.
          */
-        it('should have names defined and not empty', function() {
+        it('require each source has a defined, non-empty name', function() {
             for (const feed of allFeeds) {
                 expect(feed.name).toBeDefined();
                 expect(feed.name.length).not.toBe(0);

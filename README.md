@@ -50,7 +50,7 @@ Additional requirements:
 - Delete `allFeeds` and rename `allFeed` to `allFeeds` then refresh the browser
   - Jasmine is green
 
-#### `'should have links defined and not empty'` test
+#### `'require each source has a defined, non-empty link'` test
 
 - Open `apps.js` in an editor
 - Add a new feed to `allFeeds` with a missing `url`
@@ -61,7 +61,7 @@ Additional requirements:
 - Delete the new feed that was added
   - Jasmine is green
 
-#### `'should have names defined and not empty'` test
+#### `'require each source has a defined, non-empty name'` test
 
 - Open `apps.js` in an editor
 - Add a new feed to `allFeeds` with a missing `name`
