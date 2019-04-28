@@ -38,26 +38,38 @@ Additional requirements:
 
 ## Steps to Run the Test Suites
 
+The following steps are repeated for each test:
+
+- Open the specified source file (`app.js` or `index.html`) in an editor
+- Make the specified change to the source file, e.g., rename a variable
+- Save the source file
+- Refresh the browser (usually done by pressing `F5`)
+- Note the test result returned by Jasmine
+
 ### `'RSS Feeds'` Test Suite
 
 #### `'are defined'` Test
 
 - Open `apps.js` in an editor
-- Rename `allFeeds` to `allFeed` then refresh the browser
-  - Jasmine is red: `ReferenceError: allFeeds is not defined`
-- Add an `allFeeds` variable as an empty array then refresh the browser
-  - Jasmine is red: `Error: Expected 0 not to be 0.`
-- Delete `allFeeds` and rename `allFeed` to `allFeeds` then refresh the browser
+- Rename `allFeeds` to `allFeed`
+  - Jasmine is red
+  - `ReferenceError: allFeeds is not defined`
+- Add an `allFeeds` variable as an empty array
+  - Jasmine is red
+  - `Error: Expected 0 not to be 0.`
+- Delete `allFeeds` and rename `allFeed` to `allFeeds`
   - Jasmine is green
 
 #### `'require each source has a defined, non-empty link'` test
 
 - Open `apps.js` in an editor
 - Add a new feed to `allFeeds` with a missing `url`
-  - Jasmine is red: `Error: Expected undefined to be defined.`
-  - Jasmine is red: `TypeError: Cannot read property 'length' of undefined`
+  - Jasmine is red
+  - `Error: Expected undefined to be defined.`
+  - `TypeError: Cannot read property 'length' of undefined`
 - Add a `url` with an empty value to the new feed
-  - Jasmine is red: `Error: Expected 0 not to be 0.`
+  - Jasmine is red
+  - `Error: Expected 0 not to be 0.`
 - Delete the new feed that was added
   - Jasmine is green
 
@@ -65,14 +77,25 @@ Additional requirements:
 
 - Open `apps.js` in an editor
 - Add a new feed to `allFeeds` with a missing `name`
-  - Jasmine is red: `Error: Expected undefined to be defined.`
-  - Jasmine is red: `TypeError: Cannot read property 'length' of undefined`
+  - Jasmine is red
+  - `Error: Expected undefined to be defined.`
+  - `TypeError: Cannot read property 'length' of undefined`
 - Add a `name` with an empty value to the new feed
-  - Jasmine is red: `Error: Expected 0 not to be 0.`
+  - Jasmine is red
+  - `Error: Expected 0 not to be 0.`
 - Delete the new feed that was added
   - Jasmine is green
 
 ### `'The menu'` Test Suite
+
+#### `'is hidden by default'` test
+
+- Open `index.html` in an editor
+- Delete `class="menu-hidden"` from the body element
+  - Jasmine is red
+  - `Error: Expected false to be true.`
+- Add `class="menu-hidden"` to the body element
+  - Jasmine is green
 
 ### `'Initial Entries'` Test Suite
 
