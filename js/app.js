@@ -1,5 +1,6 @@
 /* eslint-disable require-jsdoc */
 /* eslint-disable capitalized-comments */
+/* global google Handlebars */
 
 /* app.js
  *

@@ -50,7 +50,7 @@ The following steps are repeated for each test:
 
 #### `'are defined'` test
 
-- Open `apps.js` in an editor
+- Open `app.js` in an editor
 - Rename `allFeeds` to `allFeed`
   - Jasmine is red
   - `ReferenceError: allFeeds is not defined`
@@ -60,9 +60,9 @@ The following steps are repeated for each test:
 - Delete `allFeeds` and rename `allFeed` to `allFeeds`
   - Jasmine is green
 
-#### `'require each source has a defined, non-empty link'` test
+#### `'require each source to have a defined, non-empty link'` test
 
-- Open `apps.js` in an editor
+- Open `app.js` in an editor
 - Add a new feed to `allFeeds` with a missing `url`
   - Jasmine is red
   - `Error: Expected undefined to be defined.`
@@ -73,9 +73,9 @@ The following steps are repeated for each test:
 - Delete the new feed that was added
   - Jasmine is green
 
-#### `'require each source has a defined, non-empty name'` test
+#### `'require each source to have a defined, non-empty name'` test
 
-- Open `apps.js` in an editor
+- Open `app.js` in an editor
 - Add a new feed to `allFeeds` with a missing `name`
   - Jasmine is red
   - `Error: Expected undefined to be defined.`
@@ -109,6 +109,15 @@ The following steps are repeated for each test:
   - Jasmine is green
 
 ### `'Initial Entries'` Test Suite
+
+#### `'are one or more'` test
+
+- Open `app.js` in an editor
+- Change the first `url` in `allFeeds` to `'http://blog.udacity.com/feedxyz'`
+  - Jasmine is red
+  - `Error: "Udacity Blog" <http://blog.udacity.com/feedxyz>: Expected 0 to be greater than or equal 1.`
+- Revert the first `url` in `allFeeds` to `'http://blog.udacity.com/feed'`
+  - Jasmine is green
 
 ### `'New Feed Selection'` Test Suite
 

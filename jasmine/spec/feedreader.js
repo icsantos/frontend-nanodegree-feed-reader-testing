@@ -1,4 +1,5 @@
 /* eslint-disable capitalized-comments */
+/* global allFeeds loadFeed */
 
 /* feedreader.js
  *
@@ -28,7 +29,7 @@ $(function() {
         /* Test each feed in the allFeeds object to ensure
          * it has a URL defined and that the URL is not empty.
          */
-        it('require each source has a defined, non-empty link', function() {
+        it('require each source to have a defined, non-empty link', function() {
             for (const feed of allFeeds) {
                 expect(feed.url).toBeDefined();
                 expect(feed.url.length).not.toBe(0);
@@ -38,7 +39,7 @@ $(function() {
         /* Test each feed in the allFeeds object to ensure
          * it has a name defined and that the name is not empty.
          */
-        it('require each source has a defined, non-empty name', function() {
+        it('require each source to have a defined, non-empty name', function() {
             for (const feed of allFeeds) {
                 expect(feed.name).toBeDefined();
                 expect(feed.name.length).not.toBe(0);
@@ -77,14 +78,25 @@ $(function() {
         });
     });
 
-    /* TODO: Write a new test suite named "Initial Entries" */
+    describe('Initial Entries', function() {
+        const index = 0;
+        const feed = allFeeds[index];
 
-        /* TODO: Write a test that ensures when the loadFeed
+        /* Test that after the asynchronous loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
-         * Remember, loadFeed() is asynchronous so this test will require
-         * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+        beforeEach(function(done) {
+            loadFeed(index, done);
+        });
+
+        it('are one or more', function() {
+            expect($('.entry-link').length)
+                .withContext(`"${feed.name}" <${feed.url}>`)
+                .toBeGreaterThanOrEqual(1);
+        });
+    });
+
 
     /* TODO: Write a new test suite named "New Feed Selection" */
 
