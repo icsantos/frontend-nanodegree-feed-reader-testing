@@ -124,11 +124,45 @@ $(function() {
         });
     });
 
+    describe('New Feed Selection', function() {
+        let oldEntries = [];
+        let newEntries = [];
+        let different = false;
 
-    /* TODO: Write a new test suite named "New Feed Selection" */
-
-        /* TODO: Write a test that ensures when a new feed is loaded
-         * by the loadFeed function that the content actually changes.
+        /* Test that the content actually changes after
+         * a new feed is loaded by the loadFeed function.
          * Remember, loadFeed() is asynchronous.
          */
+        beforeEach(function(done) {
+            loadFeed(0);
+            oldEntries = $('.entry-link')
+                .toArray()
+                .map((entry) => entry.href)
+                .sort();
+
+            loadFeed(1, done);
+        });
+
+        it('loaded new content', function() {
+            newEntries = $('.entry-link')
+                .toArray()
+                .map((entry) => entry.href)
+                .sort();
+
+            if (oldEntries.length === newEntries.length) {
+                for (let idx = 1; idx < oldEntries.length; idx++) {
+                    if (oldEntries[idx] !== newEntries[idx]) {
+                        different = true;
+                        break;
+                    }
+                }
+            } else {
+                different = true;
+            }
+
+            expect(different)
+                .withContext('New feed has different content from old feed')
+                .toBe(true);
+        });
+    });
 }());

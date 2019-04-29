@@ -50,7 +50,7 @@ The following steps are repeated for each test:
 
 ### `'RSS Feeds'` Test Suite
 
-#### `'are defined'` test
+#### `'are defined'` spec
 
 - Open `app.js` in an editor
 - Rename `allFeeds` to `allFeed`
@@ -62,7 +62,7 @@ The following steps are repeated for each test:
 - Delete `allFeeds` and rename `allFeed` to `allFeeds`
   - Jasmine is green
 
-#### `'require each source to have a defined, non-empty link'` test
+#### `'require each source to have a defined, non-empty link'` spec
 
 - Open `app.js` in an editor
 - Add a new feed to `allFeeds` with a missing `url`
@@ -74,7 +74,7 @@ The following steps are repeated for each test:
 - Delete the new feed that was added
   - Jasmine is green
 
-#### `'require each source to have a defined, non-empty name'` test
+#### `'require each source to have a defined, non-empty name'` spec
 
 - Open `app.js` in an editor
 - Add a new feed to `allFeeds` with a missing `name`
@@ -88,7 +88,7 @@ The following steps are repeated for each test:
 
 ### `'The menu'` Test Suite
 
-#### `'is hidden by default'` test
+#### `'is hidden by default'` spec
 
 - Open `index.html` in an editor
 - Delete `class="menu-hidden"` from the body element
@@ -98,7 +98,7 @@ The following steps are repeated for each test:
 - Add `class="menu-hidden"` to the body element
   - Jasmine is green
 
-#### `'changes visibility when its icon is clicked'` test
+#### `'changes visibility when its icon is clicked'` spec
 
 - Open `index.html` in an editor
 - Delete `class="menu-hidden"` from the body element
@@ -110,7 +110,7 @@ The following steps are repeated for each test:
 
 ### `'Initial Entries'` Test Suite
 
-#### `'are one or more'` test
+#### `'are one or more'` spec
 
 - Open `app.js` in an editor
 - Change the first `url` in `allFeeds` to `'http://blog.udacity.com/feedxyz'`
@@ -120,6 +120,15 @@ The following steps are repeated for each test:
   - Jasmine is green
 
 ### `'New Feed Selection'` Test Suite
+
+#### `'loaded new content'` spec
+
+- Open `feedreader.js` in an editor
+- Change `loadFeed(1, done);` to `loadFeed(0, done);`
+  - Jasmine is red
+  - `Error: New feed has different content from old feed: Expected false to be true.`
+- Change `loadFeed(0, done);` to `loadFeed(1, done);`
+  - Jasmine is green
 
 ## Links
 
