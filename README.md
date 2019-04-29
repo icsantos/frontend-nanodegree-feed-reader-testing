@@ -46,6 +46,8 @@ The following steps are repeated for each test:
 - Refresh the browser (usually done by pressing `F5`)
 - Note the test result returned by Jasmine
 
+> The changes to make one test fail may cause other tests to also fail
+
 ### `'RSS Feeds'` Test Suite
 
 #### `'are defined'` test
@@ -56,7 +58,7 @@ The following steps are repeated for each test:
   - `ReferenceError: allFeeds is not defined`
 - Add an `allFeeds` variable as an empty array
   - Jasmine is red
-  - `Error: Expected 0 not to be 0.`
+  - `Error: Empty allFeeds variable: Expected 0 not to be 0.`
 - Delete `allFeeds` and rename `allFeed` to `allFeeds`
   - Jasmine is green
 
@@ -65,11 +67,10 @@ The following steps are repeated for each test:
 - Open `app.js` in an editor
 - Add a new feed to `allFeeds` with a missing `url`
   - Jasmine is red
-  - `Error: Expected undefined to be defined.`
-  - `TypeError: Cannot read property 'length' of undefined`
+  - `Error: Missing url property: Expected undefined to be defined.`
 - Add a `url` with an empty value to the new feed
   - Jasmine is red
-  - `Error: Expected 0 not to be 0.`
+  - `Error: Empty url property: Expected 0 not to be 0.`
 - Delete the new feed that was added
   - Jasmine is green
 
@@ -78,11 +79,10 @@ The following steps are repeated for each test:
 - Open `app.js` in an editor
 - Add a new feed to `allFeeds` with a missing `name`
   - Jasmine is red
-  - `Error: Expected undefined to be defined.`
-  - `TypeError: Cannot read property 'length' of undefined`
+  - `Error: Missing name property: Expected undefined to be defined.`
 - Add a `name` with an empty value to the new feed
   - Jasmine is red
-  - `Error: Expected 0 not to be 0.`
+  - `Error: Empty name property: Expected 0 not to be 0.`
 - Delete the new feed that was added
   - Jasmine is green
 
@@ -94,7 +94,7 @@ The following steps are repeated for each test:
 - Delete `class="menu-hidden"` from the body element
   - Jasmine is red
   - `Error: Expected <body class>...</body> to have class 'menu-hidden'.`
-  - `Error: Expected false to be true.`
+  - `Error: Element has "menu-hidden" class: Expected false to be true.`
 - Add `class="menu-hidden"` to the body element
   - Jasmine is green
 
@@ -103,8 +103,8 @@ The following steps are repeated for each test:
 - Open `index.html` in an editor
 - Delete `class="menu-hidden"` from the body element
   - Jasmine is red
-  - `Error: Expected <body class="menu-hidden">...</body> not to have class 'menu-hidden'.`
-  - `Expected <body class>...</body> to have class 'menu-hidden'.`
+  - `Error: 1st click: Expected <body class="menu-hidden">...</body> not to have class 'menu-hidden'.`
+  - `Error: 2nd click: Expected <body class>...</body> to have class 'menu-hidden'.`
 - Add `class="menu-hidden"` to the body element
   - Jasmine is green
 

@@ -22,8 +22,15 @@ $(function() {
          * has been defined and that it is not empty.
          */
         it('are defined', function() {
-            expect(allFeeds).toBeDefined();
-            expect(allFeeds.length).not.toBe(0);
+            expect(allFeeds)
+                .withContext('Missing allFeeds variable')
+                .toBeDefined();
+
+            if (typeof allFeeds !== 'undefined') {
+                expect(allFeeds.length)
+                    .withContext('Empty allFeeds variable')
+                    .not.toBe(0);
+            }
         });
 
         /* Test each feed in the allFeeds object to ensure
@@ -31,8 +38,15 @@ $(function() {
          */
         it('require each source to have a defined, non-empty link', function() {
             for (const feed of allFeeds) {
-                expect(feed.url).toBeDefined();
-                expect(feed.url.length).not.toBe(0);
+                expect(feed.url)
+                    .withContext('Missing url property')
+                    .toBeDefined();
+
+                if (typeof feed.url !== 'undefined') {
+                    expect(feed.url.length)
+                        .withContext('Empty url property')
+                        .not.toBe(0);
+                }
             }
         });
 
@@ -41,8 +55,15 @@ $(function() {
          */
         it('require each source to have a defined, non-empty name', function() {
             for (const feed of allFeeds) {
-                expect(feed.name).toBeDefined();
-                expect(feed.name.length).not.toBe(0);
+                expect(feed.name)
+                    .withContext('Missing name property')
+                    .toBeDefined();
+
+                if (typeof feed.name !== 'undefined') {
+                    expect(feed.name.length)
+                        .withContext('Empty name property')
+                        .not.toBe(0);
+                }
             }
         });
     });
@@ -59,7 +80,9 @@ $(function() {
             // This is an alternative way to test if an element
             // has a specific class, but the test failure message
             // is less informative
-            expect(menuElem.hasClass('menu-hidden')).toBe(true);
+            expect(menuElem.hasClass('menu-hidden'))
+                .withContext('Element has "menu-hidden" class')
+                .toBe(true);
         });
 
         /* Test that the menu changes visibility
@@ -71,10 +94,14 @@ $(function() {
             // The menu is hidden by default so the series of clicks
             // will toggle the visibility on and off
             menuIcon.trigger('click');
-            expect(menuElem[0]).not.toHaveClass('menu-hidden');
+            expect(menuElem[0])
+                .withContext('1st click')
+                .not.toHaveClass('menu-hidden');
 
             menuIcon.trigger('click');
-            expect(menuElem[0]).toHaveClass('menu-hidden');
+            expect(menuElem[0])
+                .withContext('2nd click')
+                .toHaveClass('menu-hidden');
         });
     });
 
